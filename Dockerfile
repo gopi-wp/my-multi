@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Default command (will be overridden in docker-compose)
-CMD ["python", "auth_service.py"]
+CMD ["python", "book_service.py"]
