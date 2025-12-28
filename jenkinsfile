@@ -42,20 +42,20 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t authimage .
+               sh ' docker build -t bookimage .
          }
        }
        stage('image scan') {
           steps {
-              sh 'trivy image authimage'
+              sh 'trivy image bookimage'
          }
       } 
        stage('tag and push') {
           steps {
               script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                     sh 'docker tag authimage gopibrahmaiah/library:authimage'
-                     sh 'docker push gopibrahmaiah/library:authimage'
+                     sh 'docker tag bookimage gopibrahmaiah/library:bookimage'
+                     sh 'docker push gopibrahmaiah/library:bookimage'
                   }
              }
           }
