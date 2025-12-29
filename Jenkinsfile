@@ -41,7 +41,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t dbimage .
+               sh ' docker build -t dbimage .'
          }
        }
        stage('image scan') {
