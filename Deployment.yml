@@ -1,22 +1,130 @@
 ---
 kind: Deployment
 metadata:
-  name: mydp
-  namespace: webapps
+  name: auth
+  
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: library
+      app: auth_library
     template:
       metadata:
         Labels:
-          app: library
+          app: auth_library
     spec:
       containers:
         - name: auth_service
           image: gopibrahmaiah/library:authimage
           ports:
             -containerPort: 5001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth_service
+spec:
+  type: ClusterIP
+  selector:
+    app: auth_library
+  ports:
+    - port: 80
+      targetPort: 5001
+---
+kind: Deployment
+metadata:
+  name: book
+  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: book_library
+    template:
+      metadata:
+        Labels:
+          app: book_library
+    spec:
+      containers:
+        - name: book_service
+          image: gopibrahmaiah/library:bookimage
+          ports:
+            -containerPort: 5002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: book_service
+spec:
+  type: ClusterIP
+  selector:
+    app: book_library
+  ports:
+    - port: 80
+      targetPort: 5002
+---
+kind: Deployment
+metadata:
+  name: borrow
+  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: borrow_library
+    template:
+      metadata:
+        Labels:
+          app: borrow_library
+    spec:
+      containers:
+        - name: book_service
+          image: gopibrahmaiah/library:borrowimage
+          ports:
+            -containerPort: 5002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: borrow_service
+spec:
+  type: ClusterIP
+  selector:
+    app: borrow_library
+  ports:
+    - port: 80
+      targetPort: 5003
+---
+kind: Deployment
+metadata:
+  name: app
+  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app_library
+    template:
+      metadata:
+        Labels:
+          app: app_library
+    spec:
+      containers:
+        - name: book_service
+          image: gopibrahmaiah/library:appimage
+          ports:
+            -containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app_service
+spec:
+  type: LoadBalancer
+  selector:
+    app: book_library
+  ports:
+    - port: 80
+      targetPort: 5000
 
   
