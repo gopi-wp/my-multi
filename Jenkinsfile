@@ -42,7 +42,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t bookimage .
+               sh ' docker build -t bookimage .'
          }
        }
        stage('image scan') {
