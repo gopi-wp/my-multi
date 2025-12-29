@@ -42,7 +42,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t borrowimage .
+               sh ' docker build -t borrowimage .'
          }
        }
        stage('image scan') {
