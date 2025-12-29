@@ -41,7 +41,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t app .
+               sh ' docker build -t app .'
          }
        }
        stage('image scan') {
