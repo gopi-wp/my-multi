@@ -1,6 +1,22 @@
 ---
-apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: mydp
+  name: mydp
+  namespace: webapps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: library
+    template:
+      metadata:
+        Labels:
+          app: library
+    spec:
+      containers:
+        - name: auth_service
+          image: gopibrahmaiah/library:authimage
+          ports:
+            -containerPort: 5001
+
   
