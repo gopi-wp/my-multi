@@ -42,7 +42,7 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t authimage .
+               sh ' docker build -t authimage .'
          }
        }
        stage('image scan') {
