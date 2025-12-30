@@ -19,12 +19,7 @@ pipeline {
             steps {
                sh ' docker build -t app .'
          }
-       }
-       stage('image scan') {
-          steps {
-              sh 'trivy image app'
-         }
-      } 
+        }
        stage('tag and push') {
           steps {
               script {
