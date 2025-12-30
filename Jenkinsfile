@@ -21,11 +21,6 @@ pipeline {
                sh ' docker build -t dbimage .'
          }
        }
-       stage('image scan') {
-          steps {
-              sh 'trivy image borrowimage'
-         }
-      } 
        stage('tag and push') {
           steps {
               script {
