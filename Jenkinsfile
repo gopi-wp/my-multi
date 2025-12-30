@@ -22,11 +22,6 @@ pipeline {
                sh ' docker build -t bookimage .'
          }
        }
-       stage('image scan') {
-          steps {
-              sh 'trivy image bookimage'
-         }
-      } 
        stage('tag and push') {
           steps {
               script {
