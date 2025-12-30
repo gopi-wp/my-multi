@@ -2,10 +2,6 @@
 pipeline {
     agent any
 
-    environment {
-        scannerHome = tool "sonar"
-    }
-
     stages {
 
         stage('cleanws') {
