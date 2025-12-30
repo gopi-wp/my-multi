@@ -9,7 +9,6 @@ pipeline {
                 cleanWs()
             }
         }
-    }
 
         stage('Code') {
             steps {
@@ -38,3 +37,4 @@ pipeline {
           }
         }
       }
+   }
