@@ -18,15 +18,15 @@ pipeline {
 
         stage('image build') {
             steps {
-               sh ' docker build -t dbimage .'
+               sh ' docker build -t databaseimage .'
          }
        }
        stage('tag and push') {
           steps {
               script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                     sh 'docker tag dbimage gopibrahmaiah/library:dbimage-v1'
-                     sh 'docker push gopibrahmaiah/library:dbimage-v1'
+                     sh 'docker tag databaseimage gopibrahmaiah/library:db-v1'
+                     sh 'docker push gopibrahmaiah/library:db-v1'
                   }
              }
           }
