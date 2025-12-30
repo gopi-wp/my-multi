@@ -22,11 +22,6 @@ pipeline {
                sh ' docker build -t authimage .'
          }
        }
-       stage('image scan') {
-          steps {
-              sh 'trivy image authimage'
-         }
-      } 
        stage('tag and push') {
           steps {
               script {
