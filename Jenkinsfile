@@ -9,7 +9,6 @@ pipeline {
                 cleanWs()
             }
         }
-    }
 
         stage('Code') {
             steps {
@@ -33,7 +32,8 @@ pipeline {
                      sh 'docker tag app gopibrahmaiah/library:app'
                      sh 'docker push gopibrahmaiah/library:app'
                   }
-             }
-          }
-        }
-      }
+              }
+           }
+         }
+       }
+    }
