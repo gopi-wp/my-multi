@@ -42,11 +42,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: auth_library
+      app: auth-library
   template:
     metadata:
       labels:
-        app: auth_library
+        app: auth-library
     spec:
       containers:
       - name: auth_service
@@ -62,7 +62,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: auth_library
+    app: auth-library
   ports:
   - port: 80
     targetPort: 5001
@@ -77,14 +77,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: book_library
+      app: book-library
   template:
     metadata:
       labels:
-        app: book_library
+        app: book-library
     spec:
       containers:
-      - name: book_service
+      - name: book-service
         image: gopibrahmaiah/library:bookimage
         ports:
         - containerPort: 5002
@@ -97,7 +97,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: book_library
+    app: book-library
   ports:
   - port: 80
     targetPort: 5002
@@ -112,14 +112,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: borrow_library
+      app: borrow-library
   template:
     metadata:
       labels:
-        app: borrow_library
+        app: borrow-library
     spec:
       containers:
-      - name: borrow_service
+      - name: borrow-service
         image: gopibrahmaiah/library:borrowimage
         ports:
         - containerPort: 5003
@@ -132,7 +132,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: borrow_library
+    app: borrow-library
   ports:
   - port: 80
     targetPort: 5003
@@ -147,14 +147,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app_library
+      app: app-library
   template:
     metadata:
       labels:
-        app: app_library
+        app: app-library
     spec:
       containers:
-      - name: app_service
+      - name: app-service
         image: gopibrahmaiah/library:appimage
         ports:
         - containerPort: 5000
@@ -167,7 +167,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: app_library
+    app: app-library
   ports:
   - port: 80
     targetPort: 5000
