@@ -17,15 +17,15 @@ pipeline {
         }
         stage('image build') {
             steps {
-               sh ' docker build -t app .'
+               sh ' docker build -t app1 .'
          }
         }
        stage('tag and push') {
           steps {
               script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                     sh 'docker tag app gopibrahmaiah/library:app'
-                     sh 'docker push gopibrahmaiah/library:app'
+                     sh 'docker tag app1 gopibrahmaiah/library:app-v1'
+                     sh 'docker push gopibrahmaiah/library:app-v1'
                   }
               }
            }
