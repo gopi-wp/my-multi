@@ -155,7 +155,7 @@ spec:
     spec:
       containers:
       - name: app-service
-        image: gopibrahmaiah/library:app
+        image: gopibrahmaiah/library:app-v1
         ports:
         - containerPort: 5000
 ---
