@@ -25,8 +25,8 @@ pipeline {
           steps {
               script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                     sh 'docker tag dbimage gopibrahmaiah/library:dbimage'
-                     sh 'docker push gopibrahmaiah/library:dbimage'
+                     sh 'docker tag dbimage gopibrahmaiah/library:dbimage-v1'
+                     sh 'docker push gopibrahmaiah/library:dbimage-v1'
                   }
              }
           }
