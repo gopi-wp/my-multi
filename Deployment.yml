@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: gopibrahmaiah/library:dbimage
+        image: gopibrahmaiah/library:dbimage-v1
         ports:
         - containerPort: 3306
 ---
